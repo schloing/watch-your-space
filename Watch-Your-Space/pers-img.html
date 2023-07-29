@@ -1,0 +1,90 @@
+<html oncontextmenu="console.log('dis mans just trynna edit ur app brudda'); return false;">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="int-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.0/chart.min.js"></script>
+    <link rel="icon" href="https://img.icons8.com/color/64/000000/mars-planet.png" type="image/png">
+    <title>Watch Your Space | Picture-return count</title>
+    <link href="table.css" rel="stylesheet" />
+</head>
+
+<body>
+    <canvas id="chart" style="width: 200px; height: 50px;"></canvas>
+    <br><code>Faster Intervals -- Adjusting the interval speed to faster speeds may impact performance and accuracy of data recieved</code><br><br>
+    <span>100ms</span><span style="position: absolute; right: 0px; padding-right: 5px">10,000ms</span><input
+        type="range" min="100" max="10000" value="5000" onchange="intervalSpeed = this.value"><br>
+    <br><code>Faster Logging -- Adjusting the logging speed may impact performance. It is recommended to keep the logging speed the same speed as the interval speed</code><br><br>
+    <span>100ms</span><span style="position: absolute; right: 0px; padding-right: 5px">10,000ms</span><input
+        type="range" min="100" max="10000" value="1000" onchange="loggingSpeed = this.value"><br><br>
+    <a href="#open-modal" style="font-family: 'Consolas';"
+        onclick="document.getElementById('is').innerHTML = intervalSpeed; document.getElementById('ls').innerHTML = loggingSpeed;">Restart
+        logging</a><br>
+    <div id="open-modal" class="modal-window">
+        <div>
+            <a href="#" class="modal-close">&#x2715</a>
+            <h1><code>Hold Up!</code></h1>
+            <div>
+                <code>Are you sure you want to restart logging (with the following data: <code>Interval Speed: <span id="is" class="mark">DEFAULT</span>&nbsp;&nbsp;ms, Logging speed: <span id="ls" class="mark">DEFAULT</span>&nbsp;&nbsp;ms</code>)?
+                All current progress may be lost due to a sudden freeze in retrieving data</code>
+            </div>
+            <br>
+            <a href="#" class="confirm">Back to safety</a>
+            <a href="#" class="warning" onclick="restartWithParameters()">Continue</a>
+        </div>
+    </div>
+
+    <div id="open-second-modal" class="modal-window">
+        <div>
+            <a href="#" class="modal-close">&#x2715</a>
+            <h1><code>All done!</code></h1>
+            <div>
+                <code>Congratulations on waiting. Your data has been graphed. The data collected on the graph will be stored in a database and displayed on the table below. Thank you for your patience</code>
+            </div>
+            <br>
+            <a href="#" class="confirm" onclick="">Continue</a>
+        </div>
+    </div>
+    </div>
+    <br>
+    <code id="liveupdate">Please wait while we are calculating category sizes. This may take up to an hour or more to retrieve the most
+        accurate results.</code>
+    <code>Use the slider to change the interval speed. Lower speeds may cause freezing and(or) innaccurate data. The longer the interval speed, the more accurate the results are and the longer it takes to complete the request.</code>
+    <code>Please be patient, as it will take a while to go through the 310(and more coming everyday) pages of data to go through. That's <span class="mark">82.5 megabytes</span> of raw text to go through, with a hundred entries of data per page! (And a total of <span class="mark">1203000</span> lines of data to read)</code>
+    <code>While you're waiting, why not try out some of our other pages? Try going through pictures taken by the Curiosity rover? <a href="index.html" target="_blank">Click here!</a></code>
+    <br><br><code style="font-size: 30px">About Project</code><br>
+    <code>This specific page was made over the course of 3 days. This page shows a graph of the frequency of images returned by the Perseverance rover categorised in months. </code>
+    <br><br>
+    <code id="stopwatch"><span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span></code>
+    <br>
+    <br>
+
+    <code>Compare your results to the previous results recorded below! Keep in mind to check the <span class="mark">interval</span> and <span class="mark">logging</span> speeds.</code>
+    <code>Here are your local results. Public results will be added soon, so that other people's results will be visible for you, and vise versa</code>
+    <br>
+    <br>
+
+    <!-- <div id="wrapper"></div> -->
+
+    <table id="table">
+        <th>Name</th>
+        <th>Time</th>
+        <th>Results</th>
+        <th>Logging Speed</th>
+        <th>Interval Speed</th>
+        <th>Total Time Taken</th>
+    </table>
+
+    
+    <!-- i hate u nasa why did you have to make ur apis soooooooooooo difficult >:(( -->
+</body>
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+<script src="taffy.js"></script>
+<script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+<script src="main.js"></script>
+
+
+</html>
+
